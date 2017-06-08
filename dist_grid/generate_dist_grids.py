@@ -73,13 +73,15 @@ def calc_distance_grid(descriptor, renderings_grp):
 print "Calculating distance grid for %i images" % len(im_list)
 count = 0
 for im in im_list:
-  print "Calculating grid: %i / %i" % (count+1, len(im_list))
+  count += 1
+  print "Calculating grid: %i / %i" % (count, len(im_list))
+  if im not in images_grp:
+    print "ERROR: No descriptor data available for image %s" % im
+    continue
   descriptor = images_grp[im][:]
   curr_grid = calc_distance_grid(descriptor, renderings_grp)
   curr_grid_np = numpy.array(curr_grid)
-  print curr_grid_np
   data_out_f[im] = curr_grid_np
-  count += 1
 
 # Close data files
 renderings_f.close()

@@ -11,10 +11,10 @@
   6) Perform pose estimation testing for error rates
   7) GOTO 1...
 
-**TODO (w/ priority):**
-  [1] Write triplet generation code  
-  [1] Write network fine tuning code  
-  [1] Determine test dataset for pose estimation task  
-  [1] Write pose estimation testing code  
-  [2] Bring in code for Step 1 (right now not in repo)  
-  [3] Create script to automate pipeline  
+**TODO (w/ priority):**  
+&nbsp;&nbsp;[1] Write triplet generation code  
+&nbsp;&nbsp;[1] Write network fine tuning code  
+&nbsp;&nbsp;[1] Determine test dataset for pose estimation task  
+&nbsp;&nbsp;[1] Write pose estimation testing code  
+&nbsp;&nbsp;[2] Bring in code for Step 1 (right now not in repo)  
+&nbsp;&nbsp;[3] Create script to automate pipeline  

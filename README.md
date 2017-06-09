@@ -11,7 +11,7 @@
   6) Perform pose estimation testing for error rates
   7) GOTO 1...
 
-**TODO (Priority 1 (high) through 3 (low):**
+**TODO (w/ priority):**
   [1] Write triplet generation code
   [1] Write network fine tuning code
   [1] Determine test dataset for pose estimation task

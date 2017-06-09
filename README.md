@@ -12,9 +12,9 @@
   7) GOTO 1...
 
 **TODO (w/ priority):**
-  [1] Write triplet generation code
-  [1] Write network fine tuning code
-  [1] Determine test dataset for pose estimation task
-  [1] Write pose estimation testing code
-  [2] Bring in code for Step 1 (right now not in repo)
-  [3] Create script to automate pipeline
+  [1] Write triplet generation code  
+  [1] Write network fine tuning code  
+  [1] Determine test dataset for pose estimation task  
+  [1] Write pose estimation testing code  
+  [2] Bring in code for Step 1 (right now not in repo)  
+  [3] Create script to automate pipeline  

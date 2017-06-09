@@ -1,6 +1,6 @@
 # Unsupervised 2D Pose Estimation
 
-**TODO:** Written description of project
+Unsupervised method of performing pose estimation of 2D images using renderings of 3D object models.
 
 **Pipeline:**
   1) Use network to determine features for real & rendered images (start w/ AlexNet trained on ImageNet)
@@ -11,10 +11,12 @@
   6) Perform pose estimation testing for error rates
   7) GOTO 1...
 
-**TODO (w/ priority):**  
+**To-do (w/ priority):**  
   * [1] Write triplet generation code  
   * [1] Write network fine tuning code  
   * [1] Determine test dataset for pose estimation task  
   * [1] Write pose estimation testing code  
   * [2] Bring in code for Step 1 (right now not in repo)  
   * [3] Create script to automate pipeline  
+  * [3] Change distance grid computation code to work with UTCS Condor for faster runtime
+  * [3] Add detailed written description of project to README

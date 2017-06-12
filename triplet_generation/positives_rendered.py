@@ -32,7 +32,7 @@ for im in im_poses:
   out_line = "%s" % name
   for p in positives:
     p_mod = "rend%i_%s" % (pose, str(p[0]))
-    out_line += ", %s" % p_mod
+    out_line += ",%s" % p_mod
   out_f.write("%s\n" % out_line)
 
 # Close files

@@ -49,7 +49,7 @@ for im in im_poses:
   # Write to file
   out_line = "%s" % name
   for p in chosen_negatives:
-    out_line += ", %s" % str(p)
+    out_line += ",%s" % str(p)
   out_f.write("%s\n" % out_line)
 
 # Close files

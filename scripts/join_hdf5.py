@@ -11,6 +11,7 @@ for i in range(8):
 
 # Create output hdf5
 dest_hdf5_f = h5py.File(dest_hdf5_fp, 'w')
+dest_hdf5_f.close()
 
 # Add data from each input file to out
 file_count = 0
@@ -24,6 +25,3 @@ for src_fp in src_hdf5_fps:
     cmd = "h5copy -i %s -o %s -s %s -d %s" % \
       (src_fp, dest_hdf5_fp, key, key)
     subprocess.call(cmd.split(" "))
-
-# Close output hdf5
-dest_hdf5_f.close()

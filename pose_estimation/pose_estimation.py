@@ -1,8 +1,8 @@
 import h5py
 
 # Inputs vars
-dist_grid_fp = "/net/cvcfs/storage/skull-atlas/imgscrape/dist_grids/alexnet_fc7_dist_grid.hdf5"
-imlist_fp = "../inputs/test.txt"
+dist_grid_fp = "/net/cvcfs/storage/skull-atlas/imgscrape/dist_grids/alexnet_fc7_dist_grids.hdf5"
+imlist_fp = "../inputs/real_images.txt"
 out_fp = "./alexnet_fc7_poses.txt"
 top_n = 5
 
@@ -27,14 +27,14 @@ out_f = open(out_fp, 'w')
 def pose_estimation(dist_grid):
   min_pose = -1
   min_sum = -1
-  for p in dist_grid:
+  for p in range(len(dist_grid)):
     # Calculate sum of L2 distances for top N renderings per pose
     curr_sum = 0
     for n in range(top_n):
-      curr_sum += dist_grid[p][n]
+      curr_sum += float(dist_grid[p][n][1])
 
     # Set the best pose as one with min top_n sum
-    if min_pose == -1 && min_sum = -1:
+    if min_pose == -1 and min_sum == -1:
       min_pose = p
       min_sum = curr_sum
     else:

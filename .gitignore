@@ -2,6 +2,8 @@ inputs/
 data/
 fine_tuning/models/
 fine_tuning/data/
+triplet_generation/out/
+pose_estimation/out/
 
 *.swp
 *.pyc

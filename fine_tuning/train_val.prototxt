@@ -1,4 +1,4 @@
-name: "CaffeNet"
+name: "Pose_CaffeNet"
 
 layer {
   name: "data"

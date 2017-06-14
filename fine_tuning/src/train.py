@@ -2,13 +2,12 @@
 import caffe
 from caffe.proto import caffe_pb2
 import google.protobuf as pb2
+import config
 
-# Input Vars
 GPU = True
 solver_proto = "../solver.prototxt"
 model_dir = "../models"
 pretrain_weights = model_dir + "/bvlc_reference_alexnet.caffemodel"
-max_iters = 500000 #TODO???
 
 class SolverWrapper:
   
@@ -40,5 +39,5 @@ class SolverWrapper:
 print "Initializing solver..."
 solv = SolverWrapper(solver_proto, model_dir, pretrain_weights)
 print "Beginning training..."
-solv.train(max_iters)
+solv.train(config.MAX_ITERS)
 print "Training finished!"

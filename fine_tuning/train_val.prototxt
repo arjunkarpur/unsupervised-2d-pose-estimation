@@ -1,10 +1,9 @@
-name: "Pose_CaffeNet"
-
+name: "Pose-tuned_CaffeNet"
 layer {
   name: "data"
   type: "Python"
   top: "data"
-  top: "label"
+  #top: "label"
   python_param {
     module: 'triplet_data'
     layer: 'TripletDataLayer'
@@ -339,23 +338,31 @@ layer {
   }
 }
 layer {
-  name: "accuracy"
-  type: "Accuracy"
-  bottom: "fc8"
-  bottom: "label"
-  top: "accuracy"
-  include {
-    phase: TEST
-  }
-}
-layer {
   name: "tripletloss"
   type: "Python"
-  bottom: "fc8"
-  bottom: "label"
   top: "tripletloss"
+  bottom: "fc8"
+  #bottom: "label"
   python_param {
-    module: 'triplet_loss'
-    layer: 'TripletLossLayer'
+    module: "triplet_loss"
+    layer: "TripletLossLayer"
   }
+  loss_weight: 1
 }
+#layer {
+#  name: "accuracy"
+#  type: "Accuracy"
+#  bottom: "fc8"
+#  bottom: "label"
+#  top: "accuracy"
+#  include {
+#    phase: TEST
+#  }
+#}
+#layer {
+#  name: "loss"
+#  type: "SoftmaxWithLoss"
+#  bottom: "fc8"
+#  bottom: "label"
+#  top: "loss"
+#}

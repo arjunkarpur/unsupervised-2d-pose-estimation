@@ -9,11 +9,13 @@ Unsupervised method of performing pose estimation of 2D images using renderings 
   4) Generate triplets 
   5) Fine tune same network using triplets (& save snapshot of network)
   6) Perform pose estimation testing for error rates
-  7) GOTO 1...
+  7) GOTO 1...?
 
 **To-do (w/ priority):**  
   * [1] Write network fine tuning code  
+  * [1] Change triplet code to dynamically find triplets during training (100 hardest)
   * [1] Determine test dataset for pose estimation task  
+  * [2] Verify Steps 1-4 are correct
   * [2] Add in triplet generation using real-to-real comparisons (pos and neg)
   * [2] Bring in code for Step 1 (right now not in repo)
   * [3] Create script to automate pipeline  

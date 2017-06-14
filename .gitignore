@@ -1,3 +1,7 @@
 inputs/
 data/
+fine_tuning/models/
+fine_tuning/data/
+
 *.swp
+*.pyc

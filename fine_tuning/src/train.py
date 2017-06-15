@@ -10,7 +10,7 @@ class SolverWrapper:
     # Set to use CPU/GPU
     if config.GPU:
       caffe.set_mode_gpu()
-      caffe.set_device(0)
+      #caffe.set_device(0)
     else:
       caffe.set_mode_cpu()
 

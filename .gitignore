@@ -7,3 +7,4 @@ pose_estimation/out/
 
 *.swp
 *.pyc
+.nfs00*

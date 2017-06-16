@@ -35,7 +35,6 @@ class TripletLossLayer(caffe.Layer):
   def backward(self, top, propagate_down, bottom):
 
     diff = np.zeros_like(bottom[0].data, dtype=np.float32)
-    print np.shape(diff)
 
     for i in range(self.triplets_per_batch):
       if i in self.neg_loss_triplets:

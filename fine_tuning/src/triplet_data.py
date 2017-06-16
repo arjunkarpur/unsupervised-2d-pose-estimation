@@ -32,15 +32,13 @@ class TripletDataLayer(caffe.Layer):
     self.transformer.set_channel_swap('data', (2,1,0))
 
     # Load triplets from file (TODO: temp)
-    triplets_fp = "../../triplet_generation/out/triplets.txt"
+    triplets_fp = "../../triplet_generation/out/triplets_shuffle.txt"
     triplets_f = open(triplets_fp, 'r')
     self.triplets = triplets_f.readlines()
     triplets_f.close()
     self.batch_num = 0
 
   def forward(self, bottom, top):
-    #batch_blob = self.get_next_batch()
-    #top[0].data[...] = batch_blob
     top[0].data[...] = self.get_next_batch()
   
   def backward(self, top, prop_down, bottom):

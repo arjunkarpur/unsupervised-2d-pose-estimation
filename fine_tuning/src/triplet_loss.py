@@ -29,12 +29,11 @@ class TripletLossLayer(caffe.Layer):
         curr_loss = 0
         self.neg_loss_triplets.add(i)
       loss += curr_loss
-
     top[0].data[...] = loss
   
   def backward(self, top, propagate_down, bottom):
 
-    diff = np.zeros_like(bottom[0].data, dtype=np.float32)
+    diff = np.zeros_like(bottom[0].data)
 
     for i in range(self.triplets_per_batch):
       if i in self.neg_loss_triplets:

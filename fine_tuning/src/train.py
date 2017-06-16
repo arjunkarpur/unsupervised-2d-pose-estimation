@@ -5,7 +5,6 @@ import google.protobuf as pb2
 import config
 
 def create_sgd_solver(solver_proto, pretrain_weights=None):
-
   # Set to use CPU/GPU
   if config.GPU:
     caffe.set_mode_gpu()

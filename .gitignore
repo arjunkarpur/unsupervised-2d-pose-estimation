@@ -1,7 +1,7 @@
 inputs/
 data/
-fine_tuning/models/
-fine_tuning/data/
+network/models/
+network/data/
 triplet_generation/out/
 pose_estimation/out/
 

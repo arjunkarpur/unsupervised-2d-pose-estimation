@@ -1,4 +1,4 @@
-name: "CaffeNet"
+name: "Pose-tuned-CaffeNet"
 layer {
   name: "data"
   type: "Input"
@@ -206,8 +206,12 @@ layer {
   }
 }
 layer {
-  name: "prob"
-  type: "Softmax"
+  name: "l2_norm"
+  type: "Python"
+  top: "embedding"
   bottom: "fc8"
-  top: "prob"
+  python_param {
+    module: "l2_normalization"
+    layer: "L2NormLayer"
+  }
 }

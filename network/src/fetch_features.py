@@ -6,10 +6,10 @@ import numpy as np
 
 # Input vars
 data_out_fp = "/net/cvcfs/storage/skull-atlas/imgscrape/features_data/finetune/real_images_fc8.hdf5"
-file_list_fp = "" #TODO
+file_list_fp = ""
 dir_base = "/mnt/localscratch/arjun/renderings_210/healthy"
 feat_type = 'REAL' # or RENDERED
-fetch_layer = 'fc8'
+fetch_layer = 'embedding'
 num_batches = 50
 num_ims_per_model = 210
 

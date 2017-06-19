@@ -9,13 +9,11 @@ Unsupervised method of performing pose estimation of 2D images using renderings 
   4) Generate triplets 
   5) Fine tune same network using triplets (& save snapshot of network)
   6) Perform pose estimation testing for error rates
-  7) GOTO 1...?
 
 **To-do (w/ priority):**  
   * [1] Change triplet code to dynamically find triplets during training (100 hardest)
-  * [1] Change fine tune code to perform file I/O faster
   * [1] Determine test dataset for pose estimation task  
-  * [2] Verify Steps 1-5 are correct
+  * [1] Verify Steps 1-5 are correct
   * [2] Add in triplet generation using real-to-real comparisons (pos and neg)
   * [3] Create script to automate pipeline  
   * [3] Change distance grid computation code to work with UTCS Condor for faster runtime

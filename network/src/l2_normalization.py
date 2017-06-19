@@ -19,7 +19,7 @@ class L2NormLayer(caffe.Layer):
       
   def backward(self, top, propagate_down, bottom):
     # No backwards prop
-    pass
+    bottom[0].diff[...] = np.ones(np.shape(bottom[0].diff))
 
   def reshape(self, bottom, top):
     pass

@@ -10,5 +10,5 @@ max_iter: 10300
 momentum: 0.9
 weight_decay: 0.0005
 snapshot: 500
-snapshot_prefix: "../models/finetune_posenet/"
+snapshot_prefix: "/net/cvcfs/storage/skull-atlas/imgscrape/net_models/finetune_posenet"
 solver_mode: GPU

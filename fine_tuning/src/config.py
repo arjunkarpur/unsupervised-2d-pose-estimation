@@ -9,5 +9,6 @@ PRETRAIN_WEIGHTS_FP = "../models/bvlc_reference_caffenet.caffemodel"
 # Network parameters
 GPU = True
 BATCH_SIZE = 30
+TRIPLET_MARGIN = 1
 IM_WIDTH = 227
 IM_HEIGHT =  227

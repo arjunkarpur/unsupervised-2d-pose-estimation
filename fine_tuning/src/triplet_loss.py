@@ -10,7 +10,7 @@ class TripletLossLayer(caffe.Layer):
     assert (self.batch_size%3 == 0)
     self.triplets_per_batch = self.batch_size / 3
     top[0].reshape(1)
-    self.margin = 1
+    self.margin = config.TRIPLET_MARGIN
     self.neg_loss_triplets = set()
 
   def forward(self, bottom, top):

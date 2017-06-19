@@ -2,10 +2,10 @@ import numpy
 import h5py
 
 # Input vars
-renderings_datapath = "/net/cvcfs/storage/skull-atlas/imgscrape/feature_data/healthy_renderings_features_fc7.hdf5"
-images_datapath = "/net/cvcfs/storage/skull-atlas/imgscrape/feature_data/linear_positive_fc7.hdf5"
-imlist_fp = "../inputs/test.txt"
-data_out_fp = "../data/alexnet_dist_grid.hdf5"
+images_datapath = "/net/cvcfs/storage/skull-atlas/imgscrape/feature_data/finetune/real_images_fc8.hdf5"
+renderings_datapath = "/net/cvcfs/storage/skull-atlas/imgscrape/feature_data/finetune/renderings_images_fc8.hdf5"
+imlist_fp = "../inputs/split/7.txt"
+data_out_fp = "/net/cvcfs/storage/skull-atlas/imgscrape/dist_grids/finetune/finetune_dist_grid_7.hdf5"
 
 # Open data files for reading
 renderings_f = h5py.File(renderings_datapath, 'r')

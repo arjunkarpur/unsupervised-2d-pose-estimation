@@ -1,9 +1,10 @@
 import h5py
 
 # Inputs vars
-dist_grid_fp = "/net/cvcfs/storage/skull-atlas/imgscrape/dist_grids/alexnet_fc7_dist_grids.hdf5"
-imlist_fp = "../inputs/real_images.txt"
-out_fp = "./alexnet_fc7_poses.txt"
+dist_grid_fp = "/net/cvcfs/storage/skull-atlas/imgscrape/dist_grids/finetune/finetune_fc8_dist_grids.hdf5"
+#imlist_fp = "../inputs/real_images.txt"
+imlist_fp = "./test_error/test_set.txt"
+out_fp = "./out/finetune_fc8_poses.txt"
 top_n = 5
 
 # Open distance grid data file for reading

@@ -17,7 +17,6 @@ Unsupervised method of performing pose estimation of 2D images using renderings 
   * [1] Determine test dataset for pose estimation task  
   * [2] Verify Steps 1-5 are correct
   * [2] Add in triplet generation using real-to-real comparisons (pos and neg)
-  * [2] Bring in code for Step 1 (right now not in repo)
   * [3] Create script to automate pipeline  
   * [3] Change distance grid computation code to work with UTCS Condor for faster runtime
   * [3] Add detailed written description of project to README

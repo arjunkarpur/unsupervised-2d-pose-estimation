@@ -1,7 +1,7 @@
 
 import numpy as np
 import caffe
-import config
+import train_config as config
 import os
 
 class TripletDataLayer(caffe.Layer):

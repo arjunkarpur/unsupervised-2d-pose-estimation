@@ -2,7 +2,7 @@
 import caffe
 from caffe.proto import caffe_pb2
 import google.protobuf as pb2
-import config
+import train_config as config
 
 def create_sgd_solver(solver_proto, pretrain_weights=None):
   # Set to use CPU/GPU

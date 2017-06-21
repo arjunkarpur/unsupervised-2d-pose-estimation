@@ -1,6 +1,6 @@
 
 import caffe
-import config
+import train_config as config
 import numpy as np
 
 class TripletLossLayer(caffe.Layer):

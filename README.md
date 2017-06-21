@@ -11,6 +11,7 @@ Unsupervised method of performing pose estimation of 2D images using renderings 
   6) Perform pose estimation testing for error rates
 
 **To-do (w/ priority):**  
+  * [1] Implement backprop for L2-Norm layer!!!@!@!!
   * [1] Change triplet code to dynamically find triplets during training (100 hardest)
   * [1] Determine test dataset for pose estimation task  
   * [1] Verify Steps 1-5 are correct

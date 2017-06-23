@@ -19,3 +19,4 @@ Unsupervised method of performing pose estimation of 2D images using renderings 
   * [3] Create script to automate pipeline  
   * [3] Change distance grid computation code to work with UTCS Condor for faster runtime
   * [3] Add detailed written description of project to README
+  * [3] Add in commands and detailed instructions on how to run in README

@@ -14,9 +14,9 @@ Unsupervised method of performing pose estimation of 2D images using renderings 
   * [1] Speed up backprop for L2-Norm layer (use foiling trick) - way too slow right now
   * [1] Change triplet code to dynamically find triplets during training (100 hardest)
   * [1] Determine test dataset for pose estimation task  
-  * [1] Verify Steps 1-5 are correct
+  * [1] Verify Steps 1-5 are correct via automated testing
   * [2] Add in triplet generation using real-to-real comparisons (pos and neg)
-  * [3] Create script to automate pipeline  
-  * [3] Change distance grid computation code to work with UTCS Condor for faster runtime
+  * [2] Change distance grid computation code to work with UTCS Condor for faster runtime
   * [3] Add detailed written description of project to README
   * [3] Add in commands and detailed instructions on how to run in README
+  * [3] Create script to automate pipeline  

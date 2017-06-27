@@ -29,7 +29,8 @@ class L2NormLayer(caffe.Layer):
     bottom[0].diff[...] = diff
 
   def reshape(self, bottom, top):
-    pass
+    shape = np.shape(bottom[0].data)
+    top[0].reshape(shape[0], shape[1])
 
   def calc_l2_norm_gradient(self, v, v_bar, dFdvbar):
     # See 'network/l2_norm_gradient.jpg' for formulation

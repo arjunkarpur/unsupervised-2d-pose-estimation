@@ -1,14 +1,15 @@
 
+import os
 import sys
 import h5py
 import caffe
 import numpy as np
 
 # Input vars
-data_out_fp = "/net/cvcfs/storage/skull-atlas/imgscrape/features_data/finetune/real_images_fc8.hdf5"
-file_list_fp = ""
+data_out_fp = "/net/cvcfs/storage/skull-atlas/imgscrape/feature_data/finetune/rendered_images.hdf5"
+file_list_fp = "../../inputs/rend_dirs.txt"
 dir_base = "/mnt/localscratch/arjun/renderings_210/healthy"
-feat_type = 'REAL' # or RENDERED
+feat_type = 'RENDERED' # or REAL
 fetch_layer = 'embedding'
 num_batches = 50
 num_ims_per_model = 210
@@ -21,13 +22,13 @@ def initialize_net():
   # Create network
   caffe.set_mode_gpu()
   model_def = "../deploy.prototxt"
-  model_weights = "../../models/bvlc_reference_caffenet.caffemodel"
+  model_weights = "../models/finetune_posenet_iter_10299.caffemodel"
   net = caffe.Net(model_def, model_weights, caffe.TEST)
   return net
 
-def create_input_transformer():
+def create_input_transformer(net):
   # Load mean ImageNet image
-  mu = np.load('ilsvrc_2012_mean.npy')
+  mu = np.load('../data/ilsvrc_2012_mean.npy')
   mu = mu.mean(1).mean(1)
 
   # Create transformer for input image
@@ -83,7 +84,7 @@ def fetch_features_rendered(net, transformer, dirnames, base_grp):
   for i in range(total_num_models):
     ims = []
     curr_dir = dirnames[i]
-    print "%s \t %i/%i" % (curr_dir, i, total_num_models)
+    print "%s \t %i/%i" % (curr_dir, i+1, total_num_models)
     for z in range(num_ims_per_model):
       ims.append(os.path.join(dir_base, curr_dir, "%i.png" % z))
 
@@ -121,8 +122,8 @@ if __name__ == "__main__":
 
   # Create network and init output file
   net = initialize_net()
-  transformer = create_input_transformer()
-  f = h5py.File(datapath, 'w')
+  transformer = create_input_transformer(net)
+  f = h5py.File(data_out_fp, 'w')
   grp = f.create_group('imagefeatures')
   
   # Fetch features

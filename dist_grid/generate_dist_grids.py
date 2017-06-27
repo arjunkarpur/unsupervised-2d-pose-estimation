@@ -2,10 +2,10 @@ import numpy
 import h5py
 
 # Input vars
-images_datapath = "/net/cvcfs/storage/skull-atlas/imgscrape/feature_data/finetune/real_images_fc8.hdf5"
-renderings_datapath = "/net/cvcfs/storage/skull-atlas/imgscrape/feature_data/finetune/renderings_images_fc8.hdf5"
-imlist_fp = "../inputs/split/7.txt"
-data_out_fp = "/net/cvcfs/storage/skull-atlas/imgscrape/dist_grids/finetune/finetune_dist_grid_7.hdf5"
+images_datapath = "/mnt/localscratch/arjun/temp/real_images.hdf5"
+renderings_datapath = "/mnt/localscratch/arjun/temp/rendered_images.hdf5"
+imlist_fp = "../inputs/split/0.txt"
+data_out_fp = "/net/cvcfs/storage/skull-atlas/imgscrape/dist_grids/finetune/finetune_dist_grid_0.hdf5"
 
 # Open data files for reading
 renderings_f = h5py.File(renderings_datapath, 'r')
@@ -41,14 +41,8 @@ def tuple_sort(one, two):
   return int(one[1] - two[1])
 
 def L2(descrip_one, descrip_two):
-  if len(descrip_one) != len(descrip_two):
-    print "L2 ERROR!"
-    return -1
-  dist = 0
-  for i in range(len(descrip_one)):
-    dist += ((descrip_one[i] - descrip_two[i]) * \
-             (descrip_one[i] - descrip_two[i]))
-  return dist
+  diff = descrip_one - descrip_two
+  return diff.dot(diff)
 
 def calc_distance_grid(descriptor, renderings_grp):
   # 210 (poses) x 90 (models)

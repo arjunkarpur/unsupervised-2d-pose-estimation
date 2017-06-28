@@ -4,8 +4,8 @@ import h5py
 # Input vars
 images_datapath = "/mnt/localscratch/arjun/temp/real_images.hdf5"
 renderings_datapath = "/mnt/localscratch/arjun/temp/rendered_images.hdf5"
-imlist_fp = "../inputs/split/0.txt"
-data_out_fp = "/net/cvcfs/storage/skull-atlas/imgscrape/dist_grids/finetune/finetune_dist_grid_0.hdf5"
+imlist_fp = "../inputs/real_images.txt"
+data_out_fp = "/net/cvcfs/storage/skull-atlas/imgscrape/dist_grids/finetune/finetune_dist_grids.hdf5"
 
 # Open data files for reading
 renderings_f = h5py.File(renderings_datapath, 'r')

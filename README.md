@@ -3,6 +3,7 @@
 Unsupervised method of performing pose estimation of 2D images using renderings of 3D object models.
 
 **Pipeline:**
+  0) Render images of N models in M known poses. Collect 'real images' scraped from web
   1) Use network to determine features for real & rendered images (start w/ AlexNet trained on ImageNet)
   2) Calculate distance grid between real images and rendered images (dim: #poses x #models)
   3) Perform pose estimation 

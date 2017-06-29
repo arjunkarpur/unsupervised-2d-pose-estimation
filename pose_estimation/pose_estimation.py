@@ -1,12 +1,16 @@
 import h5py
 
 # Inputs vars
+top_n = 5
+
 dist_grid_fp = "/net/cvcfs/storage/skull-atlas/imgscrape/dist_grids/alexnet_fc7_dist_grids.hdf5"
 #dist_grid_fp = "/net/cvcfs/storage/skull-atlas/imgscrape/dist_grids/finetune/finetune_dist_grids.hdf5"
-#imlist_fp = "../inputs/real_images.txt"
-imlist_fp = "./test_error/test_set.txt"
+
 out_fp = "./out/alexnet_fc7_poses.txt"
-top_n = 5
+#out_fp = "./out/finetune_poses.txt"
+
+#imlist_fp = "./test_error/test_set.txt"
+imlist_fp = "../inputs/real_images.txt"
 
 # Open distance grid data file for reading
 dist_grid_f = h5py.File(dist_grid_fp, 'r')
@@ -36,12 +40,10 @@ def pose_estimation(dist_grid):
       curr_sum += float(dist_grid[p][n][1])
 
     # Set the best pose as one with min top_n sum
-    if min_pose == -1 and min_sum == -1:
+    if (min_pose == -1 and min_sum == -1) or \
+       (curr_sum < min_sum):
       min_pose = p
       min_sum = curr_sum
-    else:
-      if curr_sum < min_sum:
-        min_pose = p
 
   print "Avg distance: %f" % (curr_sum/top_n)
   return min_pose

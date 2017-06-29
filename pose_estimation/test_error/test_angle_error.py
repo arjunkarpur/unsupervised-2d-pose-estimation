@@ -1,6 +1,7 @@
 
 gt_fp = "./gt.txt"
-poses_fp = "../out/finetune_poses.txt"
+poses_fp = "../out/alexnet_fc7_poses.txt"
+#poses_fp = "../out/finetune_poses.txt"
 
 # Read GT lines
 gt_f = open(gt_fp, 'r')

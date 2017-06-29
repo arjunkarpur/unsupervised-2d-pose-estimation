@@ -2,7 +2,7 @@ import h5py
 
 # Inputs vars
 dist_grids_fp = "/net/cvcfs/storage/skull-atlas/imgscrape/dist_grids/alexnet_fc7_dist_grids.hdf5"
-poses_fp = "../pose_estimation/alexnet_fc7_poses.txt"
+poses_fp = "../pose_estimation/out/alexnet_fc7_poses.txt"
 out_fp = "./out/positives_rendered.txt"
 top_n = 5
 

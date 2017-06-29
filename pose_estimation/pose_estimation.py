@@ -3,7 +3,8 @@ import h5py
 # Inputs vars
 top_n = 5
 
-dist_grid_fp = "/net/cvcfs/storage/skull-atlas/imgscrape/dist_grids/alexnet_fc7_dist_grids.hdf5"
+#dist_grid_fp = "/net/cvcfs/storage/skull-atlas/imgscrape/dist_grids/alexnet_fc7_dist_grids.hdf5"
+dist_grid_fp = "/mnt/localscratch/arjun/temp/dist_grids/alexnet_fc7_dist_grids.hdf5"
 #dist_grid_fp = "/net/cvcfs/storage/skull-atlas/imgscrape/dist_grids/finetune/finetune_dist_grids.hdf5"
 
 out_fp = "./out/alexnet_fc7_poses.txt"

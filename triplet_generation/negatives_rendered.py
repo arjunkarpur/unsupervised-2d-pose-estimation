@@ -3,10 +3,10 @@ import random
 
 # Inputs vars
 dist_grids_fp = "/net/cvcfs/storage/skull-atlas/imgscrape/dist_grids/alexnet_fc7_dist_grids.hdf5"
-poses_fp = "../pose_estimation/alexnet_fc7_poses.txt"
+poses_fp = "../pose_estimation/out/alexnet_fc7_poses.txt"
 out_fp = "./out/negatives_rendered.txt"
 top_n = 5
-num_negatives = 10
+num_negatives = 125
 
 # Open dist grid file
 dist_grids_f = h5py.File(dist_grids_fp, 'r')

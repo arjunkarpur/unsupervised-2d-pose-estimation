@@ -4,14 +4,13 @@ import h5py
 top_n = 5
 
 #dist_grid_fp = "/net/cvcfs/storage/skull-atlas/imgscrape/dist_grids/alexnet_fc7_dist_grids.hdf5"
-dist_grid_fp = "/mnt/localscratch/arjun/temp/dist_grids/alexnet_fc7_dist_grids.hdf5"
-#dist_grid_fp = "/net/cvcfs/storage/skull-atlas/imgscrape/dist_grids/finetune/finetune_dist_grids.hdf5"
+dist_grid_fp = "/net/cvcfs/storage/skull-atlas/imgscrape/dist_grids/finetune/finetune_dist_grids.hdf5"
 
-out_fp = "./out/alexnet_fc7_poses.txt"
-#out_fp = "./out/finetune_poses.txt"
+#out_fp = "./out/alexnet_fc7_poses.txt"
+out_fp = "./out/finetune_poses.txt"
 
-#imlist_fp = "./test_error/test_set.txt"
-imlist_fp = "../inputs/real_images.txt"
+imlist_fp = "./test_error/test_set.txt"
+#imlist_fp = "../inputs/real_images.txt"
 
 # Open distance grid data file for reading
 dist_grid_f = h5py.File(dist_grid_fp, 'r')

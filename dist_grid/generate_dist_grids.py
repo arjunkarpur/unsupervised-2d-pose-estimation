@@ -2,10 +2,10 @@ import numpy
 import h5py
 
 # Input vars
-images_datapath = "/mnt/localscratch/arjun/temp/real_images.hdf5"
-renderings_datapath = "/mnt/localscratch/arjun/temp/rendered_images.hdf5"
-imlist_fp = "../inputs/real_images.txt"
-data_out_fp = "/net/cvcfs/storage/skull-atlas/imgscrape/dist_grids/finetune/finetune_dist_grids.hdf5"
+images_datapath = "/mnt/localscratch/arjun/temp/finetune/23_2mil/real_images.hdf5"
+renderings_datapath = "/mnt/localscratch/arjun/temp/finetune/23_2mil/rendered_images.hdf5"
+imlist_fp = "../inputs/split/7.txt"
+data_out_fp = "/mnt/localscratch/arjun/temp/grids/finetune_dist_grid_7.hdf5"
 
 # Open data files for reading
 renderings_f = h5py.File(renderings_datapath, 'r')

@@ -4,6 +4,7 @@ network/models/
 network/data/
 triplet_generation/out/
 pose_estimation/out/
+testing/out/
 
 *.swp
 *.pyc

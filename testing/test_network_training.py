@@ -1,11 +1,12 @@
 
 import h5py
-import numpy
+import numpy as np
 
-real_data_fp = "/mnt/localscratch/arjun/temp/image_features/alexnet/real_images.hdf5"
-rend_data_fp = "/mnt/localscratch/arjun/temp/image_features/alexnet/rendered_images.hdf5"
-training_triplets_fp = "../triplet_generation/out/triplets_shuffle.txt"
+real_data_fp = "/mnt/localscratch/arjun/temp/alexnet/real_images.hdf5"
+rend_data_fp = "/mnt/localscratch/arjun/temp/alexnet/rendered_images.hdf5"
+training_triplets_fp = "../triplet_generation/out/test_set/triplets_shuffle.txt"
 margin = 0.2
+l2_norm = False
 
 # Load hdf5 files
 real_data_f = h5py.File(real_data_fp, 'r')
@@ -23,7 +24,6 @@ error = []
 count = 0
 for l in triplet_lines:
   count += 1
-  #print "Checking %i / %i" % (count, len(triplet_lines))
   split = (l.split("\n")[0]).split(",")
   anchor_str, pos_str, neg_str = \
     split[0], split[1], split[2]
@@ -38,16 +38,27 @@ for l in triplet_lines:
   pos_v = rend_data_grp[pos_model][pos_pose][:]
   neg_v = rend_data_grp[neg_model][neg_pose][:]
 
+  if l2_norm:
+    anchor_v = anchor_v / (np.sqrt(anchor_v.dot(anchor_v)))
+    pos_v = pos_v / (np.sqrt(pos_v.dot(pos_v)))
+    neg_v = neg_v / (np.sqrt(neg_v.dot(neg_v)))
+
   ap = (anchor_v-pos_v).dot(anchor_v-pos_v)
   an = (anchor_v-neg_v).dot(anchor_v-neg_v)
   curr_loss = ap - an + margin
   if curr_loss > 0:
     error.append((l, curr_loss))
 
-print "Errors (%i / %i):" % (len(error), len(triplet_lines))
+# Print data
+total_loss = 0
 for e in error:
-  print e
+  total_loss += e[1]
+avg_loss_per_error = float(total_loss)/float(len(error))
+avg_loss_all_triplets = float(total_loss)/float(len(triplet_lines))
+error_rate = float(100)*float(len(error))/float(len(triplet_lines))
+print "Error rate (%i / %i): %f %%" % (len(error), len(triplet_lines), error_rate)
+print "Average loss per error: %f" % (avg_loss_per_error)
+print "Average loss (all triplets): %f" % (avg_loss_all_triplets)
 
 real_data_f.close()
 rend_data_f.close()
-

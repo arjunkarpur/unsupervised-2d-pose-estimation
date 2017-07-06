@@ -32,7 +32,7 @@ class TripletDataLayer(caffe.Layer):
     self.transformer.set_channel_swap('data', (2,1,0))
 
     # Load triplets from file (TODO: temp)
-    triplets_fp = "../../triplet_generation/out/triplets_shuffle.txt"
+    triplets_fp = config.TRIPLETS_FP
     triplets_f = open(triplets_fp, 'r')
     self.triplets = triplets_f.readlines()
     triplets_f.close()

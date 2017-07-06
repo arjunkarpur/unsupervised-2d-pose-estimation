@@ -1,3 +1,4 @@
+import numpy as np
 import h5py
 
 # Inputs vars
@@ -34,11 +35,14 @@ out_f = open(out_fp, 'w')
 def pose_estimation(dist_grid):
   min_pose = -1
   min_sum = -1
+  total_sum = 0
   for p in range(len(dist_grid)):
     # Calculate sum of L2 distances for top N renderings per pose
     curr_sum = 0
     for n in range(top_n):
-      curr_sum += float(dist_grid[p][n][1])
+      curr_sum += np.sqrt(float(dist_grid[p][n][1]))
+    #print "%i:\t %f" % (p,float(curr_sum)/float(top_n))
+    total_sum += curr_sum 
 
     # Set the best pose as one with min top_n sum
     if (min_pose == -1 and min_sum == -1) or \
@@ -46,7 +50,9 @@ def pose_estimation(dist_grid):
       min_pose = p
       min_sum = curr_sum
 
-  print "Avg distance: %f" % (curr_sum/top_n)
+  total_sum -= min_sum
+  print "Pose avg distance: %f" % (min_sum/top_n)
+  print "Other avg distance: %f" % (total_sum/(top_n*(len(dist_grid)-1)))
   return min_pose
 
 #####################

@@ -42,7 +42,8 @@ def tuple_sort(one, two):
 
 def L2(descrip_one, descrip_two):
   diff = descrip_one - descrip_two
-  return diff.dot(diff)
+  L2 = numpy.sqrt(diff.dot(diff))
+  return L2
 
 def calc_distance_grid(descriptor, renderings_grp):
   # 210 (poses) x 90 (models)

@@ -4,10 +4,11 @@ import h5py
 top_n = 5
 
 #dist_grid_fp = "/net/cvcfs/storage/skull-atlas/imgscrape/dist_grids/alexnet_fc7_dist_grids.hdf5"
-dist_grid_fp = "/net/cvcfs/storage/skull-atlas/imgscrape/dist_grids/finetune/finetune_dist_grids.hdf5"
+#dist_grid_fp = "/net/cvcfs/storage/skull-atlas/imgscrape/dist_grids/finetune/1_23mil_dist_grids.hdf5"
+dist_grid_fp = "/net/cvcfs/storage/skull-atlas/imgscrape/dist_grids/finetune/23_2mil_dist_grids.hdf5"
 
 #out_fp = "./out/alexnet_fc7_poses.txt"
-out_fp = "./out/finetune_poses.txt"
+out_fp = "./out/23_2mil_poses.txt"
 
 imlist_fp = "./test_error/test_set.txt"
 #imlist_fp = "../inputs/real_images.txt"

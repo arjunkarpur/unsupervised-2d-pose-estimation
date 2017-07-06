@@ -3,10 +3,10 @@ import subprocess
 
 # Inputs vars
 src_hdf5_fps = []
-dest_hdf5_fp = "/net/cvcfs/storage/skull-atlas/imgscrape/dist_grids/finetune/finetune__dist_grids.hdf5"
+dest_hdf5_fp = "/net/cvcfs/storage/skull-atlas/imgscrape/dist_grids/finetune/23_2mil_dist_grids.hdf5"
 for i in range(8):
   src_path = \
-    "/mnt/localscratch/arjun/temp/image_features/finetune/grids/finetune_dist_grid_%i.hdf5"%i
+    "/mnt/localscratch/arjun/temp/grids/finetune_dist_grid_%i.hdf5"%i
   src_hdf5_fps.append(src_path)
 
 # Create output hdf5

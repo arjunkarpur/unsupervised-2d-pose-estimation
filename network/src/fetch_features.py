@@ -6,11 +6,11 @@ import caffe
 import numpy as np
 
 # Input vars
-data_out_fp = "/net/cvcfs/storage/skull-atlas/imgscrape/feature_data/finetune/1_23mil/rendered_images.hdf5"
-#file_list_fp = "../../inputs/real_images_full.txt"
-file_list_fp = "../../inputs/rend_dirs.txt"
+data_out_fp = "/net/cvcfs/storage/skull-atlas/imgscrape/feature_data/finetune/1_28mil/margin_1_4/real_images.hdf5"
+file_list_fp = "../../inputs/real_images_full.txt"
+#file_list_fp = "../../inputs/rend_dirs.txt"
 dir_base = "/mnt/localscratch/arjun/renderings_210/healthy"
-feat_type = 'RENDERED' # or REAL
+feat_type = 'REAL' # or REAL
 fetch_layer = 'embedding'
 num_batches = 50
 num_ims_per_model = 210
@@ -23,7 +23,8 @@ def initialize_net():
   # Create network
   caffe.set_mode_gpu()
   model_def = "../deploy.prototxt"
-  model_weights = "../models/finetune_posenet_iter_128749.caffemodel"
+  #model_weights = "../models/finetune_posenet_iter_128749.caffemodel"
+  model_weights = "/net/cvcfs/storage/skull-atlas/imgscrape/net_models/1_28mil/margin_1_4/1_28mil_margin1_4_iter_128749.caffemodel"
   net = caffe.Net(model_def, model_weights, caffe.TEST)
   return net
 

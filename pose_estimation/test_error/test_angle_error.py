@@ -1,8 +1,7 @@
 
 gt_fp = "./gt.txt"
-#poses_fp = "../out/alexnet_fc7_poses.txt"
-#poses_fp = "../out/1_23mil_poses.txt"
-poses_fp = "../out/23_2mil_poses.txt"
+#poses_fp = "../out/23_2mil_poses.txt"
+poses_fp = "./gt_a.txt"
 
 # Read GT lines
 gt_f = open(gt_fp, 'r')
@@ -33,11 +32,10 @@ def calculate_error(gt_pose, predicted_pose):
 
   ang_1_diff = min(ind_1_diff*12, 360-(ind_1_diff*12))
   ang_2_diff = min(ind_2_diff*30, 360-(ind_2_diff*30))
-  #print ang_1_diff, ang_2_diff
   return (ang_1_diff, ang_2_diff)
 
 # Test
-total = 1
+total = 0
 total_one_error = 0
 total_two_error = 0
 print "Testing with %i ground truth images/poses" % len(gt)

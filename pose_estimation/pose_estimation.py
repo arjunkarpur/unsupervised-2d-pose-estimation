@@ -4,11 +4,8 @@ import h5py
 # Inputs vars
 top_n = 5
 
-#dist_grid_fp = "/net/cvcfs/storage/skull-atlas/imgscrape/dist_grids/alexnet_fc7_dist_grids.hdf5"
-#dist_grid_fp = "/net/cvcfs/storage/skull-atlas/imgscrape/dist_grids/finetune/1_23mil_dist_grids.hdf5"
-dist_grid_fp = "/net/cvcfs/storage/skull-atlas/imgscrape/dist_grids/finetune/23_2mil_dist_grids.hdf5"
+dist_grid_fp = "/net/cvcfs/storage/skull-atlas/imgscrape/dist_grids/finetune/23_2mil/test_set_dist_grids.hdf5"
 
-#out_fp = "./out/alexnet_fc7_poses.txt"
 out_fp = "./out/23_2mil_poses.txt"
 
 imlist_fp = "./test_error/test_set.txt"
@@ -28,6 +25,13 @@ for l in lines:
 # Open output file
 out_f = open(out_fp, 'w')
 
+global total_pose_distance
+total_pose_distance = 0
+global total_other_distance
+total_other_distance = 0
+global total_count
+total_count = 0
+
 ####################
 #  BEGIN FUNCTIONS  #
 #####################
@@ -40,7 +44,7 @@ def pose_estimation(dist_grid):
     # Calculate sum of L2 distances for top N renderings per pose
     curr_sum = 0
     for n in range(top_n):
-      curr_sum += np.sqrt(float(dist_grid[p][n][1]))
+      curr_sum += float(dist_grid[p][n][1])
     #print "%i:\t %f" % (p,float(curr_sum)/float(top_n))
     total_sum += curr_sum 
 
@@ -53,6 +57,12 @@ def pose_estimation(dist_grid):
   total_sum -= min_sum
   print "Pose avg distance: %f" % (min_sum/top_n)
   print "Other avg distance: %f" % (total_sum/(top_n*(len(dist_grid)-1)))
+  global total_pose_distance 
+  total_pose_distance += (min_sum/top_n)
+  global total_other_distance
+  total_other_distance += (total_sum/(top_n*(len(dist_grid)-1)))
+  global total_count
+  total_count += 1
   return min_pose
 
 #####################
@@ -69,6 +79,9 @@ for im in im_list:
     continue
   curr_pose = pose_estimation(dist_grid_f[im])
   out_f.write("%s %s\n" % (im, str(curr_pose)))
+
+print "All avg pose distance: %f"  % (total_pose_distance/total_count)
+print "All avg non-pose distance: %f" % (total_other_distance/total_count)
 
 # Close files
 dist_grid_f.close()

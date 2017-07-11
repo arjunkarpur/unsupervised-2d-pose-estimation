@@ -4,11 +4,11 @@ test_interval: 10000000
 base_lr: 0.00001
 lr_policy: "step"
 gamma: 0.1
-stepsize: 80000
+stepsize: 100000
 display: 20
-max_iter: 128749
+max_iter: 205999
 momentum: 0.9
 weight_decay: 0.0005
 snapshot: 10000
-snapshot_prefix: "/net/cvcfs/storage/skull-atlas/imgscrape/net_models/triplets_three/1_28mil/margin_0_2/finetune"
+snapshot_prefix: "/net/cvcfs/storage/skull-atlas/imgscrape/net_models/triplets_four/2_06mil/margin_0_2/finetune"
 solver_mode: GPU

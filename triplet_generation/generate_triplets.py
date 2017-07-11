@@ -54,6 +54,8 @@ for im in im_poses:
       all_dists.append((curr_name, curr_pose, curr_dist))
   sorted_dists = sorted(all_dists, key=lambda x: float(x[2]))
 
+  #TODO: create bins
+
   for i in range(num_positives):
     pass
     #TODO: pick positive

@@ -1,5 +1,7 @@
 # Unsupervised 2D Pose Estimation
 
+** WORK IN PROGRESS **
+
 Unsupervised method of performing pose estimation of 2D images using renderings of 3D object models.
 
 **Pipeline:**  

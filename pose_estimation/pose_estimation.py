@@ -4,9 +4,9 @@ import h5py
 # Inputs vars
 top_n = 5
 
-dist_grid_fp = "/net/cvcfs/storage/skull-atlas/imgscrape/dist_grids/finetune/23_2mil/test_set_dist_grids.hdf5"
+dist_grid_fp = "/net/cvcfs/storage/skull-atlas/imgscrape/dist_grids/finetune/triplets_two/1_28mil/margin_0_2/test_set_dist_grids.hdf5"
 
-out_fp = "./out/23_2mil_poses.txt"
+out_fp = "./out/check.txt"
 
 imlist_fp = "./test_error/test_set.txt"
 #imlist_fp = "../inputs/real_images.txt"

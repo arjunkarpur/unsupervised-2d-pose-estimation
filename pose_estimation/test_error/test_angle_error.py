@@ -1,7 +1,7 @@
 
 gt_fp = "./gt.txt"
 #poses_fp = "../out/23_2mil_poses.txt"
-poses_fp = "./gt_a.txt"
+poses_fp = "../out/check.txt"
 
 # Read GT lines
 gt_f = open(gt_fp, 'r')

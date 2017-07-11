@@ -2,8 +2,8 @@
 import h5py
 import numpy as np
 
-real_data_fp = "/mnt/localscratch/arjun/temp/alexnet/real_images.hdf5"
-rend_data_fp = "/mnt/localscratch/arjun/temp/alexnet/rendered_images.hdf5"
+real_data_fp = "/net/cvcfs/storage/skull-atlas/imgscrape/feature_data/finetune/triplets_one/1_28mil/margin_0_2/real_images.hdf5"
+rend_data_fp = "/net/cvcfs/storage/skull-atlas/imgscrape/feature_data/finetune/triplets_one/1_28mil/margin_0_2/rendered_images.hdf5"
 training_triplets_fp = "../triplet_generation/out/test_set/triplets_shuffle.txt"
 margin = 0.2
 l2_norm = False

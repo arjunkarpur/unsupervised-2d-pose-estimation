@@ -24,6 +24,21 @@ for l in lines:
 # Create output file
 out_f = open(out_fp, 'w')
 
+def calculate_angle_diff(a, b):
+  a_ang_1 = int(a) % 30
+  a_ang_2 = int(a) / 30
+  b_ang_1 = int(b) % 30
+  b_ang_2 = int(b) / 30
+
+  ind_1_diff = \
+    max(a_ang_1 - b_ang_1, b_ang_1 - a_ang_1)
+  ind_2_diff = \
+    max(a_ang_2 - b_ang_2, b_ang_2 - a_ang_2)
+
+  ang_1_diff = min(ind_1_diff*12, 360-(ind_1_diff*12))
+  ang_2_diff = min(ind_2_diff*30, 360-(ind_2_diff*30))
+  return (ang_1_diff, ang_2_diff) 
+
 # Generate NUM_NEGATIVES per real image
 count = 0
 for im in im_poses:
@@ -36,10 +51,15 @@ for im in im_poses:
   negatives = []
   for curr_p in range(len(curr_dist_grid)):
     add = []
+    """
     if pose == curr_p:
       add = curr_dist_grid[curr_p][top_n:]
     else:
       add = curr_dist_grid[curr_p][:]
+    """
+    diff_1, diff_2 = calculate_angle_diff(pose, curr_p)
+    if diff_1 > 50 or diff_2 > 50:
+        add = curr_dist_grid[curr_p][:]
     for l in add:
       negatives.append("pose%i_%s" % (curr_p,str(l[0])))
 

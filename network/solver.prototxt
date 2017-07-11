@@ -10,5 +10,5 @@ max_iter: 128749
 momentum: 0.9
 weight_decay: 0.0005
 snapshot: 10000
-snapshot_prefix: "/net/cvcfs/storage/skull-atlas/imgscrape/net_models/1_28mil/margin_1_4/1_28mil_margin1_4"
+snapshot_prefix: "/net/cvcfs/storage/skull-atlas/imgscrape/net_models/triplets_three/1_28mil/margin_0_2/finetune"
 solver_mode: GPU
